@@ -1,0 +1,15 @@
+# Unity generated folders
+Library/
+Temp/
+obj/
+Logs/
+UserSettings/
+
+# Visual Studio Code generated folders
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
