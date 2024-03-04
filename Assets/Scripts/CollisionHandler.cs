@@ -16,6 +16,7 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("This is the fuel");
                 break;
             case "Finish":
+                LoadNextLevel();
                 Debug.Log("Successfully landed");
                 break;
             default:
@@ -25,8 +26,21 @@ public class CollisionHandler : MonoBehaviour
         }
     }
 
+    private void LoadNextLevel()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int NextSceneIndex = currentSceneIndex + 1;
+        if(NextSceneIndex == SceneManager.sceneCountInBuildSettings)
+        {
+            NextSceneIndex = 0;
+        }
+
+        SceneManager.LoadScene(NextSceneIndex);
+    }
+
     private void ReloadLevel()
     {
-        SceneManager.LoadScene(0);
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
     }
 }
