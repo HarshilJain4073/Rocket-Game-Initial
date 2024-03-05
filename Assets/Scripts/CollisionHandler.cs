@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+    [SerializeField]float levelLoadDelay = 1f;
     void OnCollisionEnter(Collision other) {
         switch(other.gameObject.tag)
         {
@@ -16,14 +17,26 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("This is the fuel");
                 break;
             case "Finish":
-                LoadNextLevel();
+                startNextlevelsequence();
                 Debug.Log("Successfully landed");
                 break;
             default:
-                ReloadLevel();
-                Debug.Log("PLease balance rocket");
+                StartCrashSequence();
+                Debug.Log("Please balance rocket");
                 break;
         }
+    }
+
+    private void startNextlevelsequence()
+    {
+        GetComponent<Movement>().enabled = false;
+        Invoke("LoadNextLevel",levelLoadDelay);
+    }
+
+    void StartCrashSequence()
+    {
+        GetComponent<Movement>().enabled = false;
+        Invoke("ReloadLevel",levelLoadDelay);
     }
 
     private void LoadNextLevel()
