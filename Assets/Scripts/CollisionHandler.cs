@@ -7,7 +7,22 @@ using UnityEngine.SceneManagement;
 public class CollisionHandler : MonoBehaviour
 {
     [SerializeField]float levelLoadDelay = 1f;
-    void OnCollisionEnter(Collision other) {
+    [SerializeField] AudioClip successLanding;
+    [SerializeField] AudioClip crashing;
+
+    AudioSource audioSource;
+
+    bool isTransitioning = false;
+    void Start() 
+    {
+        audioSource = GetComponent<AudioSource>();   
+    }
+
+    void OnCollisionEnter(Collision other) 
+    {
+        if(isTransitioning){
+            return;
+        }
         switch(other.gameObject.tag)
         {
             case "Spawn":
@@ -25,16 +40,22 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("Please balance rocket");
                 break;
         }
-    }
+    }  
 
     private void startNextlevelsequence()
     {
+        isTransitioning = true;
+        audioSource.Stop();
+        audioSource.PlayOneShot(successLanding);
         GetComponent<Movement>().enabled = false;
         Invoke("LoadNextLevel",levelLoadDelay);
     }
 
     void StartCrashSequence()
     {
+        isTransitioning = true;
+        audioSource.Stop();
+        audioSource.PlayOneShot(crashing);
         GetComponent<Movement>().enabled = false;
         Invoke("ReloadLevel",levelLoadDelay);
     }
