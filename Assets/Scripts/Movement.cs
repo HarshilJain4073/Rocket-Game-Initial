@@ -14,14 +14,13 @@ public class Movement : MonoBehaviour
     
     Rigidbody rb;
     AudioSource audioSource;
-    // Start is called before the first frame update
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         ProcessThrust();
@@ -32,42 +31,71 @@ public class Movement : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.Space))
         {
-            rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
-            if(!audioSource.isPlaying)
-            {
-                audioSource.PlayOneShot(mainEngine);
-            }
-            if (!mainEngineParticle.isPlaying)
-            {
-                mainEngineParticle.Play();
-            }
-        }else {
-            audioSource.Stop();
-            mainEngineParticle.Stop();
+            startThrusting();
         }
-    }
-
+        else
+        {
+            stopThrusting();
+        }
+    }    
+    
     void ProcessRotation()
     {
          if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
-            ApplyRotation(mainRotate);
-            if (!sideThrusterRight.isPlaying)
-            {
-                sideThrusterRight.Play();
-            }
+            RotateLeft();
         }
         else if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
-            ApplyRotation(-mainRotate);
-            if (!sideThrusterLeft.isPlaying)
-            {
-                sideThrusterLeft.Play();
-            }
-        }else{
-            sideThrusterLeft.Stop();
-            sideThrusterRight.Stop();
+            rotateRight();
         }
+        else
+        {
+            stopRotating();
+        }
+    }
+
+    private void startThrusting()
+    {
+        rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(mainEngine);
+        }
+        if (!mainEngineParticle.isPlaying)
+        {
+            mainEngineParticle.Play();
+        }
+    }
+    
+    private void stopThrusting()
+    {
+        audioSource.Stop();
+        mainEngineParticle.Stop();
+    }
+
+    private void RotateLeft()
+    {
+        ApplyRotation(mainRotate);
+        if (!sideThrusterRight.isPlaying)
+        {
+            sideThrusterRight.Play();
+        }
+    }
+
+    private void rotateRight()
+    {
+        ApplyRotation(-mainRotate);
+        if (!sideThrusterLeft.isPlaying)
+        {
+            sideThrusterLeft.Play();
+        }
+    }
+
+    private void stopRotating()
+    {
+        sideThrusterLeft.Stop();
+        sideThrusterRight.Stop();
     }
 
     private void ApplyRotation(float RotationThrust)
