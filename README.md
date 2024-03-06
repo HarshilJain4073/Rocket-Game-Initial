@@ -16,7 +16,7 @@ Welcome to the Unity Rocket Flying Game! This project is a 3D rocket flying game
 1. **Clone the repository:**
 
    ```bash
-   git clone [https://github.com/HarshilJain4073/Rocket-Game-Initial.git](https://github.com/HarshilJain4073/Rocket-Game-Initial.git)
+   git clone https://github.com/HarshilJain4073/Rocket-Game-Initial.git
 2. **Open the project in Unity.**
 3. **Explore the scripts, assets, and scenes to understand the game logic.**
 4. **Play and enjoy the game!**
