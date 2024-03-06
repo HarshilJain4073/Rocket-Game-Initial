@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Fly under.unity
     guid: eb4b1aca2fe8fe148ab47def26687602
+  - enabled: 1
+    path: Assets/Scenes/Fly Mover.unity
+    guid: ac9f638945e462d41b0b414434dc2baf
+  - enabled: 1
+    path: Assets/Scenes/Fly Mover 1.unity
+    guid: 840b75d883a7c8344b5a75a5b758af9e
+  - enabled: 1
+    path: Assets/Scenes/Fly Mover 2.unity
+    guid: 53bedc456f8024045b042b3a2f3e84be
   m_configObjects: {}
