@@ -1,6 +1,6 @@
 # Unity Rocket Flying Game
 
-Welcome to the Unity Rocket Flying Game! This project is a 3D rocket flying game developed from scratch using Unity and C#. The game features two main movements: thrust, supported by the space key, and left/right rotation using the A/left arrow and D/right arrow keys. The rocket navigates through various levels, looping through them upon completion.
+Welcome to the Unity Rocket Flying Game! This project is a 3D rocket flying game developed from scratch using Unity and C#. The game features two main movements: thrust, supported by the space key, and left/right rotation using the A/left arrow and D/right arrow keys. The rocket navigates through various levels, looping through them upon completion. [Play Here](https://play.unity.com/mg/other/builds-0i-9).
 
 ## Features
 
@@ -16,7 +16,7 @@ Welcome to the Unity Rocket Flying Game! This project is a 3D rocket flying game
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/HarshilJain4073/Rocket-Game-Initial.git
+   git clone [https://github.com/HarshilJain4073/Rocket-Game-Initial.git](https://github.com/HarshilJain4073/Rocket-Game-Initial.git)
 2. **Open the project in Unity.**
 3. **Explore the scripts, assets, and scenes to understand the game logic.**
 4. **Play and enjoy the game!**
